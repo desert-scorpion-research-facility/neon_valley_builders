@@ -1,41 +1,42 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
+const base = import.meta.env.BASE_URL;
 const services = [
 	{
 		title: "Custom BBQs",
 		description:
 			"Custom grill stations of all shapes, sizes, and material. Made to your preference.",
-		image: "/images/bbq_1.webp",
-		link: "/work/custom-bbqs",
+		image: `${base}images/bbq_1.webp`,
+		link: `${base}work/custom-bbqs`,
 	},
 	{
 		title: "Indoor and Outdoor Fireplaces",
 		description:
 			"Beautiful custom fireplaces for indoor comfort and outdoor ambiance.",
-		image: "/images/fireplace_1.webp",
-		link: "/work/fireplaces",
+		image: `${base}images/fireplace_1.webp`,
+		link: `${base}work/fireplaces`,
 	},
 	{
 		title: "Waterfalls",
 		description:
 			"Stunning water features to enhance your outdoor living space.",
-		image: "/images/waterfall_1.webp",
-		link: "/work/waterfalls",
+		image: `${base}images/waterfall_1.webp`,
+		link: `${base}work/waterfalls`,
 	},
 	{
 		title: "Patio Coverings",
 		description:
 			"Custom patio coverings from a range of materials and designs.",
-		image: "/images/patio_1.webp",
-		link: "/work/patios",
+		image: `${base}images/patio_1.webp`,
+		link: `${base}work/patios`,
 	},
 	{
 		title: "Pavers, Grass, and Gates",
 		description:
 			"Professional landscaping, paving, and custom gate installation.",
-		image: "/images/paver_1.webp",
-		link: "/work/pavers",
+		image: `${base}images/paver_1.webp`,
+		link: `${base}work/pavers`,
 	},
 ];
 ---

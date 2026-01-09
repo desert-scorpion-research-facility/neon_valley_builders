@@ -1,20 +1,21 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
+const base = import.meta.env.BASE_URL;
 const images = [
-    "/images/waterfall_1.webp",
-    "/images/waterfall_2.jpeg",
-    "/images/waterfall_3.webp",
-    "/images/waterfall_4.webp",
-    "/images/waterfall_5.webp",
+    `${base}images/waterfall_1.webp`,
+    `${base}images/waterfall_2.jpeg`,
+    `${base}images/waterfall_3.webp`,
+    `${base}images/waterfall_4.webp`,
+    `${base}images/waterfall_5.webp`,
 ];
 
 const projectInfo = {
     title: "Waterfalls",
     description:
         "Stunning water features to enhance your outdoor living space.",
-    prevProject: { title: "Fireplaces", link: "/work/fireplaces" },
-    nextProject: { title: "Patio Coverings", link: "/work/patios" },
+    prevProject: { title: "Fireplaces", link: `${base}work/fireplaces` },
+    nextProject: { title: "Patio Coverings", link: `${base}work/patios` },
 };
 ---
 

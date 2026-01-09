@@ -1,20 +1,21 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
+const base = import.meta.env.BASE_URL;
 const images = [
-    "/images/patio_1.webp",
-    "/images/patio_2.webp",
-    "/images/patio_3.webp",
-    "/images/patio_4.webp",
-    "/images/patio_5.webp",
+    `${base}images/patio_1.webp`,
+    `${base}images/patio_2.webp`,
+    `${base}images/patio_3.webp`,
+    `${base}images/patio_4.webp`,
+    `${base}images/patio_5.webp`,
 ];
 
 const projectInfo = {
     title: "Patio Coverings",
     description:
         "Custom patio coverings from a range of materials and designs.",
-    prevProject: { title: "Waterfalls", link: "/work/waterfalls" },
-    nextProject: { title: "Pavers, Grass, and Gates", link: "/work/pavers" },
+    prevProject: { title: "Waterfalls", link: `${base}work/waterfalls` },
+    nextProject: { title: "Pavers, Grass, and Gates", link: `${base}work/pavers` },
 };
 ---
 

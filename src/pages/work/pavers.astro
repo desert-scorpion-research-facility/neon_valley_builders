@@ -1,20 +1,21 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
+const base = import.meta.env.BASE_URL;
 const images = [
-    "/images/paver_1.webp",
-    "/images/paver_2.webp",
-    "/images/paver_3.webp",
-    "/images/paver_4.webp",
-    "/images/paver_5.webp",
+    `${base}images/paver_1.webp`,
+    `${base}images/paver_2.webp`,
+    `${base}images/paver_3.webp`,
+    `${base}images/paver_4.webp`,
+    `${base}images/paver_5.webp`,
 ];
 
 const projectInfo = {
     title: "Pavers, Grass, and Gates",
     description:
         "Professional landscaping, paving, and custom gate installation.",
-    prevProject: { title: "Patio Coverings", link: "/work/patios" },
-    nextProject: { title: "Custom BBQs", link: "/work/custom-bbqs" },
+    prevProject: { title: "Patio Coverings", link: `${base}work/patios` },
+    nextProject: { title: "Custom BBQs", link: `${base}work/custom-bbqs` },
 };
 ---
 

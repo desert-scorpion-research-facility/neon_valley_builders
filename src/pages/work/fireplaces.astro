@@ -1,22 +1,23 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
+const base = import.meta.env.BASE_URL;
 const images = [
-    "/images/fireplace_1.webp",
-    "/images/fireplace_2.webp",
-    "/images/fireplace_3.webp",
-    "/images/fireplace_4.webp",
-    "/images/fireplace_5.webp",
-    "/images/fireplace_6.webp",
-    "/images/fireplace_7.webp",
+    `${base}images/fireplace_1.webp`,
+    `${base}images/fireplace_2.webp`,
+    `${base}images/fireplace_3.webp`,
+    `${base}images/fireplace_4.webp`,
+    `${base}images/fireplace_5.webp`,
+    `${base}images/fireplace_6.webp`,
+    `${base}images/fireplace_7.webp`,
 ];
 
 const projectInfo = {
     title: "Indoor and Outdoor Fireplaces",
     description:
         "Beautiful custom fireplaces for indoor comfort and outdoor ambiance.",
-    prevProject: { title: "Custom BBQs", link: "/work/custom-bbqs" },
-    nextProject: { title: "Waterfalls", link: "/work/waterfalls" },
+    prevProject: { title: "Custom BBQs", link: `${base}work/custom-bbqs` },
+    nextProject: { title: "Waterfalls", link: `${base}work/waterfalls` },
 };
 ---
 
