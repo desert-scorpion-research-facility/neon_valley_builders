@@ -1,0 +1,194 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const services = [
+	{
+		title: "Custom BBQs",
+		description:
+			"Custom grill stations of all shapes, sizes, and material. Made to your preference.",
+		image: "/images/bbq_1.webp",
+		link: "/work/custom-bbqs",
+	},
+	{
+		title: "Indoor and Outdoor Fireplaces",
+		description:
+			"Beautiful custom fireplaces for indoor comfort and outdoor ambiance.",
+		image: "/images/fireplace_1.webp",
+		link: "/work/fireplaces",
+	},
+	{
+		title: "Waterfalls",
+		description:
+			"Stunning water features to enhance your outdoor living space.",
+		image: "/images/waterfall_1.webp",
+		link: "/work/waterfalls",
+	},
+	{
+		title: "Patio Coverings",
+		description:
+			"Custom patio coverings from a range of materials and designs.",
+		image: "/images/patio_1.webp",
+		link: "/work/patios",
+	},
+	{
+		title: "Pavers, Grass, and Gates",
+		description:
+			"Professional landscaping, paving, and custom gate installation.",
+		image: "/images/paver_1.webp",
+		link: "/work/pavers",
+	},
+];
+---
+
+<BaseLayout title="Home">
+	<section class="hero">
+		<div class="hero-content">
+			<h1>Neon Valley Builders</h1>
+			<p class="hero-subtitle">
+				Custom BBQs, indoor and outdoor fireplaces, waterfalls, patios,
+				landscaping, masonry, and more.
+			</p>
+			<p class="hero-location">Serving the beautiful Las Vegas Valley.</p>
+			<p class="cta-text">See our work below.</p>
+		</div>
+	</section>
+
+	<section class="services">
+		<div class="container">
+			<div class="services-grid">
+				{
+					services.map((service) => (
+						<a href={service.link} class="service-card">
+							<div class="service-image">
+								<img
+									src={service.image}
+									alt={service.title}
+									loading="lazy"
+								/>
+							</div>
+							<div class="service-info">
+								<h2>{service.title}</h2>
+								<p>{service.description}</p>
+							</div>
+						</a>
+					))
+				}
+			</div>
+		</div>
+	</section>
+</BaseLayout>
+
+<style>
+	.hero {
+		background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+		color: white;
+		padding: 6rem 2rem;
+		text-align: center;
+	}
+
+	.hero-content {
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+	.hero h1 {
+		font-size: 3.5rem;
+		margin-bottom: 1rem;
+		font-weight: 800;
+		letter-spacing: -1px;
+	}
+
+	.hero-subtitle {
+		font-size: 1.25rem;
+		margin-bottom: 1rem;
+		color: #e5e5e5;
+		line-height: 1.8;
+	}
+
+	.hero-location {
+		font-size: 1.1rem;
+		margin-bottom: 2rem;
+		color: #fbbf24;
+		font-weight: 600;
+	}
+
+	.cta-text {
+		font-size: 1.1rem;
+		color: #d1d1d1;
+	}
+
+	.services {
+		padding: 4rem 2rem;
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.services-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+	}
+
+	.service-card {
+		background: white;
+		border-radius: 8px;
+		overflow: hidden;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+		transition:
+			transform 0.3s ease,
+			box-shadow 0.3s ease;
+		text-decoration: none;
+		color: inherit;
+		display: block;
+	}
+
+	.service-card:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+		text-decoration: none;
+	}
+
+	.service-image {
+		width: 100%;
+		height: 250px;
+		background: #f5f5f5;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+	}
+
+	.service-image img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.service-info {
+		padding: 1.5rem;
+	}
+
+	.service-info h2 {
+		font-size: 1.5rem;
+		margin-bottom: 0.5rem;
+		color: #1a1a1a;
+	}
+
+	.service-info p {
+		color: #666;
+		line-height: 1.6;
+	}
+
+	@media (max-width: 768px) {
+		.hero h1 {
+			font-size: 2.5rem;
+		}
+
+		.services-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

@@ -1,0 +1,164 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const images = [
+    "/images/fireplace_1.webp",
+    "/images/fireplace_2.webp",
+    "/images/fireplace_3.webp",
+    "/images/fireplace_4.webp",
+    "/images/fireplace_5.webp",
+    "/images/fireplace_6.webp",
+    "/images/fireplace_7.webp",
+];
+
+const projectInfo = {
+    title: "Indoor and Outdoor Fireplaces",
+    description:
+        "Beautiful custom fireplaces for indoor comfort and outdoor ambiance.",
+    prevProject: { title: "Custom BBQs", link: "/work/custom-bbqs" },
+    nextProject: { title: "Waterfalls", link: "/work/waterfalls" },
+};
+---
+
+<BaseLayout title={projectInfo.title} description={projectInfo.description}>
+    <article class="project">
+        <div class="container">
+            <div class="project-header">
+                <h1>{projectInfo.title}</h1>
+                <p class="project-description">{projectInfo.description}</p>
+            </div>
+
+            <div class="gallery">
+                {
+                    images.map((image) => (
+                        <div class="gallery-item">
+                            <img
+                                src={image}
+                                alt={projectInfo.title}
+                                loading="lazy"
+                            />
+                        </div>
+                    ))
+                }
+            </div>
+
+            <nav class="project-nav">
+                <a href={projectInfo.prevProject.link} class="nav-button prev">
+                    ← Previous: {projectInfo.prevProject.title}
+                </a>
+                <a href={projectInfo.nextProject.link} class="nav-button next">
+                    Next: {projectInfo.nextProject.title} →
+                </a>
+            </nav>
+        </div>
+    </article>
+</BaseLayout>
+
+<style>
+    .project {
+        padding: 4rem 2rem;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .project-header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .project-header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: #1a1a1a;
+    }
+
+    .project-description {
+        font-size: 1.25rem;
+        color: #666;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-bottom: 4rem;
+    }
+
+    .gallery-item {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition:
+            transform 0.3s ease,
+            box-shadow 0.3s ease;
+        background: #f5f5f5;
+    }
+
+    .gallery-item:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .project-nav {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding-top: 3rem;
+        border-top: 2px solid #e5e5e5;
+    }
+
+    .nav-button {
+        padding: 1rem 1.5rem;
+        background: #1a1a1a;
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: 500;
+        transition: background 0.3s ease;
+        flex: 1;
+        text-align: center;
+    }
+
+    .nav-button:hover {
+        background: #2d2d2d;
+        text-decoration: none;
+    }
+
+    .nav-button.prev {
+        text-align: left;
+    }
+
+    .nav-button.next {
+        text-align: right;
+    }
+
+    @media (max-width: 768px) {
+        .project-header h1 {
+            font-size: 2rem;
+        }
+
+        .gallery {
+            grid-template-columns: 1fr;
+        }
+
+        .project-nav {
+            flex-direction: column;
+        }
+
+        .nav-button.prev,
+        .nav-button.next {
+            text-align: center;
+        }
+    }
+</style>
