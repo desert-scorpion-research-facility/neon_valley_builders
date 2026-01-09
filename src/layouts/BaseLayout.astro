@@ -88,10 +88,17 @@ const {
 
     .logo {
         font-size: 1.5rem;
-        font-weight: bold;
-        color: white;
+        font-weight: 900;
         text-decoration: none;
-        letter-spacing: 0.5px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        background: linear-gradient(90deg, 
+            #ff00ff 0%,
+            #00ffff 50%, 
+            #ff00ff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
 
     .nav-links {
@@ -101,14 +108,23 @@ const {
     }
 
     .nav-links a {
-        color: white;
         text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s ease;
+        font-weight: 700;
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        background: linear-gradient(90deg, 
+            #ff00ff 0%,
+            #00ffff 50%, 
+            #ff00ff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        transition: opacity 0.3s ease;
     }
 
     .nav-links a:hover {
-        color: #fbbf24;
+        opacity: 0.7;
     }
 
     main {

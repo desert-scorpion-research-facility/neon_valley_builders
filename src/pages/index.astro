@@ -42,7 +42,7 @@ const services = [
 ---
 
 <BaseLayout title="Home">
-	<section class="hero">
+	<section class="hero" style={`--logo-url: url('${base}images/logo.png')`}>
 		<div class="hero-content">
 			<h1>Neon Valley Builders</h1>
 			<p class="hero-subtitle">
@@ -81,22 +81,51 @@ const services = [
 
 <style>
 	.hero {
-		background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+		background: #000;
 		color: white;
 		padding: 6rem 2rem;
 		text-align: center;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.hero::before {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 500px;
+		height: 500px;
+		background-image: var(--logo-url);
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
+		opacity: 0.15;
+		z-index: 0;
 	}
 
 	.hero-content {
 		max-width: 800px;
 		margin: 0 auto;
+		position: relative;
+		z-index: 1;
 	}
 
 	.hero h1 {
 		font-size: 3.5rem;
 		margin-bottom: 1rem;
-		font-weight: 800;
-		letter-spacing: -1px;
+		font-weight: 900;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+		background: linear-gradient(90deg, 
+			#ff00ff 0%,
+			#00ffff 50%, 
+			#ff00ff 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		text-shadow: 0 0 30px rgba(255, 0, 255, 0.5);
 	}
 
 	.hero-subtitle {
