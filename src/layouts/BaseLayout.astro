@@ -26,6 +26,11 @@ const {
                     <a href={import.meta.env.BASE_URL} class="logo"
                         >Neon Valley Builders</a
                     >
+                    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
                     <ul class="nav-links">
                         <li><a href={import.meta.env.BASE_URL}>Work</a></li>
                         <li>
@@ -48,7 +53,24 @@ const {
                 reserved.
             </p>
         </footer>
-    </body>
+
+        <script>
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            toggle?.addEventListener('click', () => {
+                navLinks?.classList.toggle('active');
+                toggle?.classList.toggle('active');
+            });
+
+            // Close menu when clicking a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks?.classList.remove('active');
+                    toggle?.classList.remove('active');
+                });
+            });
+        </script>
 </html>
 
 <style is:global>
@@ -84,6 +106,7 @@ const {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        position: relative;
     }
 
     .logo {
@@ -99,6 +122,39 @@ const {
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
+        z-index: 1001;
+        position: relative;
+    }
+
+    .mobile-menu-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 4px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+        z-index: 1001;
+    }
+
+    .mobile-menu-toggle span {
+        width: 25px;
+        height: 3px;
+        background: linear-gradient(90deg, #ff00ff, #00ffff);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .mobile-menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
     }
 
     .nav-links {
@@ -125,6 +181,40 @@ const {
 
     .nav-links a:hover {
         opacity: 0.7;
+    }
+
+    @media (max-width: 768px) {
+        .mobile-menu-toggle {
+            display: flex;
+        }
+
+        .nav-links {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            height: 100vh;
+            width: 70%;
+            max-width: 300px;
+            background: #1a1a1a;
+            flex-direction: column;
+            padding: 6rem 2rem 2rem;
+            gap: 2rem;
+            transition: right 0.3s ease;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+
+        .nav-links.active {
+            right: 0;
+        }
+
+        .nav-links a {
+            font-size: 1.3rem;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+        }
     }
 
     main {
